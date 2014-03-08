@@ -10,6 +10,12 @@
   "license": "ISC",
   "dependencies": {
     "co": "~3.0.4",
-    "koa": "~0.5.1"
+    "koa": "~0.5.1",
+    "jade": "~1.3.0",
+    "marked": "~0.3.1",
+    "underscore": "~1.6.0",
+    "koa-route": "~1.1.0",
+    "thunkify": "0.0.1",
+    "co-views": "~0.2.0"
   }
 }
