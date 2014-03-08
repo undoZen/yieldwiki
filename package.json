@@ -1,0 +1,15 @@
+{
+  "name": "yieldwiki",
+  "version": "0.0.1",
+  "description": "A wiki system based on koajs and javascript generators.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "co": "~3.0.4",
+    "koa": "~0.5.1"
+  }
+}
