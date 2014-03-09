@@ -38,13 +38,8 @@ exports.get = function *(queryObj, cb) {
   queryObj = _.pick(queryObj, 'slug', 'published');
   queryObj.history = false;
   var doc = yield findDoc(queryObj);
+  if (!doc) return doc;
   var titles = yield getTitles(doc.links_to);
   doc.html = addInnerLink(doc.html, titles);
   return doc;
 };
-
-exports.doc = function (str) {
-  return function (fb) {
-    return fb(null, str);
-  }
-}
