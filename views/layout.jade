@@ -1,0 +1,52 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/static/css/style.css")
+  body
+    .container-fluid
+      block content
+    script(src="/static/js/sha512.js")
+    script(src="/static/js/underscore-min.js")
+    script!= "salt = '" + salt + "'"
+    script.
+      hash = function (password) {
+        return CryptoJS.SHA512(salt + password);
+      }
+    script(src='/static/js/superagent.js')
+    script.
+      save = function () {
+        var obj = {
+          content: document.getElementById('content').value,
+          published: document.getElementById('published').checked,
+          password: hash(document.getElementById('password').value).toString()
+        };
+        document.body.classList.add('processing');
+        superagent
+          .put(location.pathname)
+          .send(JSON.stringify(obj))
+          .set('Accept', 'application/json')
+          .set('Content-Type', 'application/json; charset=utf-8')
+          .end(function (err, res){
+            if (err) {
+              alert('error occured');
+              window.error = err;
+            } else {
+              setTimeout(function () {
+                document.body.classList.remove('processing');
+              }, 300);
+              document.getElementById('article').innerHTML = res.body.html;
+            }
+          })
+      }
+      document.getElementById('save').addEventListener('click', function (ev) {
+        save();
+        ev.preventDefault();
+      }, false)
+      var edit = function () {
+        if (location.hash === "#edit") {
+          document.getElementById('edit').style.display = 'block';
+        }
+      }
+      window.addEventListener("hashchange", edit, false);
+      document.addEventListener('DOMContentLoaded', edit, false);

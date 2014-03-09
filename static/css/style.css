@@ -1,0 +1,21 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: white;
+  -webkit-transition: background-color 1s;
+  -moz-transition: background-color 1s;
+  transition: background-color 1s;
+}
+body.processing {
+  background-color: lightyellow;
+}
+
+.container-fluid {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+a {
+  color: #00B7FF;
+}

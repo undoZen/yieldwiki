@@ -1,13 +1,16 @@
-article#article!= doc.html
-#edit(style='display: none')
-  form
-    textarea(id="content", style="width: 90%; height: 400px; margin: auto")!= doc.content
-    br
-    label
-      span published
-      - if (doc.published)
-        input(type="checkbox", id="published", checked)
-      - else
-        input(type="checkbox", id="published")
-    input(type="password", id="password")
-    button(id="save") save
+extends layout
+
+block content
+  article#article!= doc.html
+  #edit(style='display: none')
+    form
+      textarea(id="content", style="width: 90%; height: 400px; margin: auto")!= doc.content
+      br
+      label
+        span published
+        - if (doc.published)
+          input(type="checkbox", id="published", checked)
+        - else
+          input(type="checkbox", id="published")
+      input(type="password", id="password")
+      button(id="save") save
