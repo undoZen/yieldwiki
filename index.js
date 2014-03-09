@@ -76,4 +76,4 @@ app.use(function* (next) {
   }
 });
 
-app.listen(1984);
+app.listen(process.env.PORT || 1984);
