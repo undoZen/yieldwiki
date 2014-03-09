@@ -16,6 +16,7 @@
     "underscore": "~1.6.0",
     "koa-route": "~1.1.0",
     "thunkify": "0.0.1",
-    "co-views": "~0.2.0"
+    "co-views": "~0.2.0",
+    "mongoose": "~3.8.8"
   }
 }
