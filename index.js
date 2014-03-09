@@ -71,7 +71,7 @@ app.use(function* (next) {
 app.use(function* (next) {
   if (this.template) {
     this.type = 'html';
-    var locals = _.extend(this.body, {salt: config.salt});
+    var locals = _.extend(this.body || {}, {salt: config.salt});
     this.body = yield render(this.template, locals);
   }
 });
